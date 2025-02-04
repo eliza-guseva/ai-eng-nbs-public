@@ -51,9 +51,17 @@ https://raw.githubusercontent.com/eliza-guseva/ai-eng-nbs-public/refs/heads/mast
 	- Count the total number of errors
 	- Save all errors to a separate file for your report
 3. User Activity Analysis
-	- Find who logged in first
+	- Find who logged in last. 
+	  - Note, you can use `grep` to find lines with 'logged in'
+	  - You can use sort to order the file. To sort in reverse, do `sort -r`. You need to sort by time. sort automatically splits lines by empty space and calls the element fields. Time is the 6th element. So you can also use `sort -k6`, meaning sort based on the string starting with 6th field.
+	  - Try combining these commands using the pipe operator (|)!
 	- Combine the log files for a complete timeline
 	- Create a list of all unique users who accessed the system
+	 - Hint: Use cut -d' ' -f2 to get just the user names 
+	   - The cut command is like taking scissors to each line of text and keeping just the piece you want.
+	   - -d' ' means "cut at spaces"
+	   - -f2 means "give me piece number 2"
+	- In order to get unique users, you can "pipe" the output through `uniq`, it returns only unique lines
 4. Secure the Evidence
 	- Create a backup of all your files
 

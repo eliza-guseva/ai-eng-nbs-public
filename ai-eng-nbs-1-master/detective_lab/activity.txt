@@ -1,7 +1,7 @@
-User alice logged in at 9:00 AM
-User bob logged in at 9:30 AM
-User alice logged out at 12:00 PM
-User charlie logged in at 1:15 PM
-User nina logged in at 1:17 PM
-User charlie logged in at 2:25 PM
-
+User trinity logged in at 09:00
+User bob logged in at 09:30
+User alice logged out at 12:00
+User charlie logged in at 13:15
+User nina logged in at 13:17
+User charlie logged out at 14:15
+User charlie logged in at 14:25
