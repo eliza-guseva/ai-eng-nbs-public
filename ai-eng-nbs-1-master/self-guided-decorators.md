@@ -1,4 +1,5 @@
-q   # Self-Guided Journey into Logging and Python Decorators
+
+# Self-Guided Journey into Logging and Python Decorators
 
 Welcome! This guide will help you discover decorators at your own pace. Each section has:
 - 🎯 A clear goal
@@ -9,11 +10,16 @@ Welcome! This guide will help you discover decorators at your own pace. Each sec
 
 # Introduction (Why we are doing this)
 
-Every software engineer, AI or not, eventually has that moment when their code fails and they have no idea why. They add print statements everywhere, run it again, wait... slowly the bug is found, the print statements are removed, and then the next day another bug makes them to start the process again. In order to make this process more organized and stable and also to know what exactly is going on in the code we use proper logging.
+Every software engineer, AI or not, eventually has that moment when their code fails and they have no idea why. 
+They add print statements everywhere, run it again, wait... slowly the bug is found, the print statements are removed, and then the next day another bug makes them to start the process again. 
+In order to make this process more organized and stable and also to know what exactly is going on in the code we use proper logging.
 
-Logging is like having security cameras in your code - they record what's happening even when you're not actively watching. But adding logging code everywhere can make your actual business logic messy and hard to read.
+Logging is like having security cameras in your code - they record what's happening even when you're not actively watching. 
+But adding logging code everywhere can make your actual business logic messy and hard to read.
 
-This is where decorators come in. Instead of adding logging code inside every function, we can write it once as a decorator and then just tag the functions we want to monitor. It's like installing a security system once and then just putting sensors where you need them, rather than building custom surveillance into every room.
+This is where decorators come in. 
+Instead of adding logging code inside every function, we can write it once as a decorator and then just tag the functions we want to monitor. 
+It's like installing a security system once and then just putting sensors where you need them, rather than building custom surveillance into every room.
 
 ## Level 1: Functions are Just Objects! 
 🎯 Goal: Understand that functions in Python are objects we can pass around
@@ -54,7 +60,9 @@ self_check_1()
 
 ### Step 2: Storing values inside functions
 
-Functions in Python can be created with values permanently stored inside them. This is crucial for decorators - when we write a logging decorator, it needs to keep track of which function it's wrapping. Let's start with a simpler example where we store numbers instead of functions:
+Functions in Python can be created with values permanently stored inside them. 
+This is crucial for decorators - when we write a logging decorator, it needs to keep track of which function it's wrapping. 
+Let's start with a simpler example where we store numbers instead of functions:
 
 ```python
 def create_multiplier(factor):
@@ -160,9 +168,14 @@ self_check_3()
 ## Level 3: Building a Real Logger
 🎯 Goal: Create a decorator that helps us track what our functions are doing
 
-Remember how print statements help us debug? This time, let's make them actually useful. Every function in Python has a special property __name__ that tells us what the function is called. So if we create a function process_payment(), Python remembers that name and we can access it using process_payment.__name__. This is super useful for logging - instead of hardcoding function names, we can automatically get them!
+Remember how print statements help us debug? 
+This time, let's make them actually useful. Every function in Python has a special property __name__ that tells us what the function is called. 
+So if we create a function process_payment(), Python remembers that name and we can access it using process_payment.__name__. 
+This is super useful for logging - instead of hardcoding function names, we can automatically get them!
 
-We also add timestamps to our logs - when debugging issues in real applications, knowing exactly when each function started and finished is crucial. If something went wrong at 2:45 PM, we can look at all function calls around that time. Or if a function is taking too long, we can see exactly how long by comparing start and end times.
+We also add timestamps to our logs - when debugging issues in real applications, knowing exactly when each function started and finished is crucial. 
+If something went wrong at 2:45 PM, we can look at all function calls around that time. 
+Or if a function is taking too long, we can see exactly how long by comparing start and end times.
 Here's how we can use these ideas to build a real logging system:
 
 ```python
@@ -190,7 +203,8 @@ print(process_payment())  # Should print:
 # Payment processed
 ```
 
-You might have noticed *args and **kwargs in our wrapper function. These are Python's way of saying "accept any arguments that come in." We need this because we want our decorator to work with any function, no matter what arguments it takes.
+You might have noticed *args and **kwargs in our wrapper function. These are Python's way of saying "accept any arguments that come in." 
+We need this because we want our decorator to work with any function, no matter what arguments it takes.
 Let's break it down:
 
 `*args` captures all regular arguments as a tuple. When someone calls `test_division(6, 2)`, args becomes (6, 2)
@@ -350,3 +364,5 @@ def error_logger(func):
     wrapper.error_count = 0
     return wrapper
 ```
+
+
